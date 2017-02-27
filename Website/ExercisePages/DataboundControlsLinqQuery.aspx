@@ -16,11 +16,12 @@
 
         <asp:GridView ID="EmployeeGV" runat="server" AutoGenerateColumns="False" DataSourceID="SkillODS">
             <Columns>
-                <asp:BoundField DataField="EmployeeID" HeaderText="EmployeeID" SortExpression="EmployeeID"></asp:BoundField>
-                <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName"></asp:BoundField>
                 <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName"></asp:BoundField>
+                <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName"></asp:BoundField>
                 <asp:BoundField DataField="HomePhone" HeaderText="HomePhone" SortExpression="HomePhone"></asp:BoundField>
                 <asp:CheckBoxField DataField="Active" HeaderText="Active" SortExpression="Active"></asp:CheckBoxField>
+                <asp:BoundField DataField="Level" HeaderText="Level" SortExpression="Level"></asp:BoundField>
+                <asp:BoundField DataField="YearsOfExperience" HeaderText="YearsOfExperience" SortExpression="YearsOfExperience"></asp:BoundField>
             </Columns>
         </asp:GridView>
         <asp:ObjectDataSource ID="SkillODS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="Employees_GetBySkill" TypeName="WorkSchedule.System.BLL.EmployeeSkillController">
