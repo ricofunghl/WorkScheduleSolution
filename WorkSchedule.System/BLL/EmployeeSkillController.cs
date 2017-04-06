@@ -41,5 +41,27 @@ namespace WorkSchedule.System.BLL
                               
             }
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select,false)]
+        public List<SkillCategoryEmployee> GetReportEmployeeSkill()
+        {
+            using (var context = new WorkScheduleContext())
+            {
+                var results = from x in context.EmployeeSkills
+                              orderby x.Skill.Description
+                              select new SkillCategoryEmployee
+                              {
+                                  Skill = x.Skill.Description,
+                                  FirstName = x.Employee.FirstName,
+                                  LastName = x.Employee.LastName,
+                                  Phone = x.Employee.HomePhone,
+                                  Level = x.Level == 1? "Novice": x.Level== 2? "Proficent": "Expert",
+                                  YOE = x.YearsOfExperience
+
+                              };
+
+                return results.ToList();
+            }
+        }
     }
 }
