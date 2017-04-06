@@ -52,8 +52,7 @@ namespace WorkSchedule.System.BLL
                               select new SkillCategoryEmployee
                               {
                                   Skill = x.Skill.Description,
-                                  FirstName = x.Employee.FirstName,
-                                  LastName = x.Employee.LastName,
+                                  Name = x.Employee.LastName + ", " + x.Employee.FirstName ,
                                   Phone = x.Employee.HomePhone,
                                   Level = x.Level == 1? "Novice": x.Level== 2? "Proficent": "Expert",
                                   YOE = x.YearsOfExperience
