@@ -12,6 +12,6 @@ namespace WorkSchedule.Data.POCOs
         public string Description { get; set; }
         public int Level { get; set; }
         public int YOE { get; set; }
-        public double HourlyWage { get; set; }
+        public decimal HourlyWage { get; set; }
     }
 }

@@ -65,7 +65,26 @@ namespace WorkSchedule.System.BLL
 
         public void Register_Employee(Employee employee, List<SkillSet> skillset)
         {
-            employee.
+            
+            using (var context = new WorkScheduleContext())
+            {
+                Employee newEmployee = new Employee();
+                newEmployee.FirstName = employee.FirstName;
+                newEmployee.LastName = employee.LastName;
+                newEmployee.HomePhone = employee.HomePhone;
+                newEmployee = context.Employees.Add(newEmployee);
+
+                foreach (var skill in skillset)
+                {
+                    EmployeeSkill newEmployeeSkill = new EmployeeSkill();
+                    newEmployeeSkill.EmployeeID = newEmployee.EmployeeID;
+                    newEmployeeSkill.HourlyWage = skill.HourlyWage;
+                    newEmployeeSkill.Level = skill.Level;
+                    newEmployeeSkill.YearsOfExperience = skill.YOE;
+                    newEmployeeSkill = context.EmployeeSkills.Add(newEmployeeSkill);
+                    
+                }
+            }
         }
     }
 }
