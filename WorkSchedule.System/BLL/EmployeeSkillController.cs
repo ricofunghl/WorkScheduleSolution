@@ -62,5 +62,10 @@ namespace WorkSchedule.System.BLL
                 return results.ToList();
             }
         }
+
+        public void Register_Employee(Employee employee, List<SkillSet> skillset)
+        {
+            employee.
+        }
     }
 }
